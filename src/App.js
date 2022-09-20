@@ -1,23 +1,61 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis } from 'recharts';
 
 function App() {
+  const data=[{
+    date:"2021-07-11",
+    sale:"53"
+  },
+  {
+    date:"2021-07-12",
+    sale:"42"
+  },
+  {
+    date:"2021-07-13",
+    sale:"88"
+  },
+  {
+    date:"2021-07-14",
+    sale:"14"
+  },
+  {
+    date:"2021-07-15",
+    sale:"77"
+  },
+  {
+    date:"2021-07-16",
+    sale:"68"
+  },
+  {
+    date:"2021-07-17",
+    sale:"63"
+  }
+  ]
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <div>
+      <BarChart
+          width={1000}
+          height={600}
+          data={data}
+          margin={{
+            top: 5,
+            right: 30,
+            left: 20,
+            bottom: 5,
+          }}
         >
-          Learn React
-        </a>
-      </header>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="date" />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Bar dataKey="sale" fill="#8884d8" />
+          
+        </BarChart>
+      </div>
+        
     </div>
   );
 }
